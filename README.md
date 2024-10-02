@@ -14,11 +14,11 @@ using a public API.
 ## Getting Started
 
 To get started with the Mountain Bike Race Results Tracker application, follow the steps below:
-Clone the repository: git clone https://github.com/yourusername/mountain-bike-race-tracker.git
+Clone the repository: git clone https://github.com/ehis0075/Mountain-Bike-Race-Results-Tracker-App.git
 
 ## Navigate to the project directory: 
 
-cd mountain-bike-race-tracker
+cd sports
 
 ## Build the project using Maven:
 
@@ -26,9 +26,9 @@ mvn clean package
 
 ## Run the Application Locally:
 
-java -jar target/mountain-bike-race-tracker-1.0.0.jar
+java -jar target/race-result-service.jar
 
-## The API service will be accessible at http://localhost:8080/api/v1
+## The API service will be accessible at http://localhost:8085/api/v1
 
 
 # Dockerize the Application
@@ -45,15 +45,15 @@ java -jar target/mountain-bike-race-tracker-1.0.0.jar
 
 ## You can build a Docker image for the application using the provided Dockerfile:
 
-docker build -t mountain-bike-race-tracker:latest .
+docker build -t race-result-service-docker:latest .
 
 ## Running the Application with Docker
 
 ## Run the Docker container using the following command:
 
-docker run -p 8080:8080 mountain-bike-race-tracker:latest
+docker run -p 8085:8085 race-result-service-docker:latest
 
-## The API service will be available at http://localhost:8080/api/v1
+## The API service will be available at http://localhost:8085/api/v1
 
 
 # Continuous Integration/Continuous Deployment (CI/CD)
