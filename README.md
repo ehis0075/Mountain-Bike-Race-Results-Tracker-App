@@ -1,39 +1,32 @@
 # Mountain Bike Race Results Tracker Application
-
 This is a Spring Boot application designed to track and manage mountain bike race results. 
 It stores information on riders, races, and race results, and provides several reports such 
 as the top 3 fastest riders, riders who did not finish, and weather conditions during the race 
 using a public API.
 
 ## Requirements
-
     Java 17
     Maven build tool
     PostgreSQL
 
-## Getting Started
-
+### Getting Started
 To get started with the Mountain Bike Race Results Tracker application, follow the steps below:
 Clone the repository: git clone https://github.com/ehis0075/Mountain-Bike-Race-Results-Tracker-App.git
 
-## Navigate to the project directory: 
-
+### Navigate to the project directory:
 cd sports
 
-## Build the project using Maven:
-
+### Build the project using Maven:
 mvn clean package
 
-## Run the Application Locally:
-
+### Run the Application Locally:
 java -jar target/race-result-service.jar
 
-## The API service will be accessible at http://localhost:8085/api/v1
+### The API service will be accessible at http://localhost:8085/api/v1
 
 
 # Dockerize the Application
-
-## This Dockerfile uses a multi-stage build approach:
+### This Dockerfile uses a multi-stage build approach:
 
     Build Stage:
         The maven:3-openjdk-17-slim image is used to build the Java application. 
@@ -43,25 +36,19 @@ java -jar target/race-result-service.jar
         The amazoncorretto:17 image is used to run the application. The JAR file from the build stage is 
         copied into the container, and the application is started with the java command.
 
-## You can build a Docker image for the application using the provided Dockerfile:
-
+### You can build a Docker image for the application using the following command:
 docker build -t race-result-service-docker:latest .
 
-## Running the Application with Docker
-
-## Run the Docker container using the following command:
-
+### Run the Docker container using the following command:
 docker run -p 8085:8085 race-result-service-docker:latest
 
-## The API service will be available at http://localhost:8085/api/v1
+### The API service will be available at http://localhost:8085/api/v1
 
 
 # Continuous Integration/Continuous Deployment (CI/CD)
 
-## The project includes a Jenkinsfile to automate the build, deployment, and running of a Docker 
-## for the application. The pipeline has three stages: build, remove-old, and run.
-
-## This Jenkins pipeline automates the build, deployment, and running of the Docker container:
+### The project includes a Jenkinsfile to automate the build, deployment, and running of a Docker for the application. The pipeline has three stages: build, remove-old, and run.
+### This Jenkins pipeline automates the build, deployment, and running of the Docker container:
 
     Build Stage:
         Builds the Docker image for the race-result-service using the docker build command.
@@ -107,7 +94,3 @@ docker run -p 8085:8085 race-result-service-docker:latest
 ### To run the tests:
 
 mvn test
-
-
-
-
