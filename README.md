@@ -73,38 +73,38 @@ docker run -p 8085:8085 race-result-service-docker:latest
         Starts a new Docker container from the built image, mapping port 8085 and setting the timezone to Africa/Lagos.
 
 
-# Reports and API Endpoints
-## 1. Top 3 Fastest Riders Per Race : This api displays the top 3 riders based on their race times for a given race.
-## Endpoint: /api/v1/race-results/top3/riders/{raceId}
-## Method: GET
-## This API requires raceId as a path variable.
+# API Endpoints
+### 1. Top 3 Fastest Riders Per Race : This api displays the top 3 riders based on their race times for a given race.
+### Endpoint: /api/v1/race-results/top3/riders/{raceId}
+### Method: GET
+### This API requires raceId as a path variable.
 
-## 2. Top 3 Race Result Per Race : This api displays the top 3 race result based on their race times for a given race.
-## Endpoint: /api/v1/race-results/top3/{raceId}
-## Method: GET
-## This API requires raceId as a path variable.
+### 2. Top 3 Race Result Per Race : This api displays the top 3 race result based on their race times for a given race.
+### Endpoint: /api/v1/race-results/top3/{raceId}
+### Method: GET
+### This API requires raceId as a path variable.
 
-## 3. Riders Who Did Not Finish the Race : This report displays all riders who started the race but did not finish.
-## Endpoint: /api/v1/race-results/did-not-finish/{raceId}
-## Method: GET
-## This API requires raceId as a path variable.
+### 3. Riders Who Did Not Finish the Race : This report displays all riders who started the race but did not finish.
+### Endpoint: /api/v1/race-results/did-not-finish/{raceId}
+### Method: GET
+### This API requires raceId as a path variable.
 
-## 4. Riders Who Did Not Participate : This report lists all riders who did not participate in a given race.
-## Endpoint: /api/v1/race-results/not-participated/{raceId}
-## Method: GET
-## This API requires raceId as a path variable.
+### 4. Riders Who Did Not Participate : This report lists all riders who did not participate in a given race.
+### Endpoint: /api/v1/race-results/not-participated/{raceId}
+### Method: GET
+### This API requires raceId as a path variable.
 
-## 5. Weather Conditions for the Race Location : This endpoint fetches the weather conditions at the race location using a public weather API.
-## Endpoint: /api/v1/weather/{raceLocation}
-## Method: GET
-## This API requires raceLocation as a path variable.
+### 5. Weather Conditions for the Race Location : This endpoint fetches the weather conditions at the race location using a public weather API.
+### Endpoint: /api/v1/weather/{raceLocation}
+### Method: GET
+### This API requires raceLocation as a path variable.
 
 
 # Unit Testing
 
-## The project includes unit tests to validate the functionality of the service.
+### The project includes unit tests to validate the functionality of the service.
 
-## To run the tests:
+### To run the tests:
 
 mvn test
 
