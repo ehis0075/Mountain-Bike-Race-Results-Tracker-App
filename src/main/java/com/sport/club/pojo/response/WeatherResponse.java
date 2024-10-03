@@ -1,8 +1,6 @@
-package com.sport.club.pojo;
+package com.sport.club.pojo.response;
 
-import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 

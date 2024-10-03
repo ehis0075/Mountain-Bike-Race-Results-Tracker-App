@@ -19,4 +19,6 @@ public interface GeneralService {
     Response prepareResponse(ResponseCodeAndMessage codeAndMessage, Object data);
 
     Response prepareResponse(String responseCode, String responseMessage, Object data);
+
+    Response prepareFailedResponse(String message);
 }

@@ -2,7 +2,9 @@ package com.sport.club.service;
 
 import com.sport.club.model.RaceResult;
 import com.sport.club.model.Rider;
-import com.sport.club.pojo.WeatherResponse;
+import com.sport.club.pojo.request.CreateRaceResultDTO;
+import com.sport.club.pojo.response.RaceResultDTO;
+import com.sport.club.pojo.response.WeatherResponse;
 
 import java.util.List;
 

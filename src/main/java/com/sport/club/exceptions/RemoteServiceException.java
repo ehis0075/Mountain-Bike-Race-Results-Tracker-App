@@ -5,7 +5,4 @@ public class RemoteServiceException extends RuntimeException {
         super(message);
     }
 
-    public RemoteServiceException(String message, Throwable cause) {
-        super(message, cause);
-    }
 }

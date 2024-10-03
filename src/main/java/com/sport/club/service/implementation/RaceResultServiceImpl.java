@@ -10,8 +10,11 @@ import com.sport.club.exceptions.RemoteServiceException;
 import com.sport.club.http.HttpService;
 import com.sport.club.model.RaceResult;
 import com.sport.club.model.Rider;
-import com.sport.club.pojo.WeatherResponse;
+import com.sport.club.pojo.request.CreateRaceResultDTO;
+import com.sport.club.pojo.response.RaceResultDTO;
+import com.sport.club.pojo.response.WeatherResponse;
 import com.sport.club.repository.RaceResultRepository;
+import com.sport.club.repository.RiderRepository;
 import com.sport.club.service.RaceResultService;
 import com.sport.club.service.RiderService;
 import kong.unirest.HttpResponse;
@@ -42,6 +45,7 @@ public class RaceResultServiceImpl implements RaceResultService {
 
     private final RaceResultRepository raceResultRepository;
     private final RiderService riderService;
+    private final RiderRepository riderRepository;
     private final Gson gson;
     private final HttpService httpService;
     private final ObjectMapper objectMapper;
@@ -76,13 +80,18 @@ public class RaceResultServiceImpl implements RaceResultService {
     public List<Rider> getRidersWhoDidNotParticipate(Long raceId) {
         log.info("Getting the Riders who did not participate for race with ID {}", raceId);
 
-        List<Rider> allRiders = riderService.getRiderList();
-
-        List<Rider> participants = raceResultRepository.findByRaceId(raceId).stream()
-                .map(RaceResult::getRider)
+        // Get all riders who participated in the race by raceId
+        List<Long> riderIdsInRace = raceResultRepository.findByRaceId(raceId)
+                .stream()
+                .map(result -> result.getRider().getId())
                 .toList();
-        return allRiders.stream().filter(rider -> !participants.contains(rider)).collect(Collectors.toList());
+
+        // Query all riders and exclude those who participated
+        return riderService.getRiderList().stream()
+                .filter(rider -> !riderIdsInRace.contains(rider.getId()))
+                .toList();
     }
+
 
     @Override
     public WeatherResponse getWeather(String location) {
@@ -110,7 +119,6 @@ public class RaceResultServiceImpl implements RaceResultService {
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("Authorization", "Bearer " + "token");
         return headers;
     }
 

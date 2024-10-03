@@ -56,6 +56,17 @@ public class GeneralServiceImpl implements GeneralService {
         return getResponse(responseCode, responseMessage, data);
     }
 
+    @Override
+    public Response prepareFailedResponse(String message) {
+        Response response = new Response();
+        response.setResponseCode("96");
+        response.setResponseMessage(message);
+
+        logger.info("ResponseCode => 96 and message => {}", message);
+
+        return response;
+    }
+
     private Response getResponse(String responseCode, String responseMessage, Object data) {
         Response response = new Response();
         response.setResponseCode(responseCode);

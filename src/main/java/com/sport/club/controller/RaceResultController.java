@@ -24,13 +24,6 @@ public class RaceResultController {
     private final GeneralService generalService;
     private final RaceResultService raceResultService;
 
-    @GetMapping("/top3/riders/{raceId}")
-    public Response getFastestThreeRiders(@PathVariable Long raceId) {
-
-        List<Rider> data = raceResultService.getFastestThreeRiders(raceId);
-        return generalService.prepareResponse(ResponseCodeAndMessage.SUCCESSFUL_0, data);
-    }
-
     @GetMapping("/top3/{raceId}")
     public Response getRaceResultForFastestThreeRiders(@PathVariable Long raceId) {
 
@@ -38,14 +31,21 @@ public class RaceResultController {
         return generalService.prepareResponse(ResponseCodeAndMessage.SUCCESSFUL_0, data);
     }
 
-    @GetMapping("/did-not-finish/{raceId}")
+    @GetMapping("/riders/top3/{raceId}")
+    public Response getFastestThreeRiders(@PathVariable Long raceId) {
+
+        List<Rider> data = raceResultService.getFastestThreeRiders(raceId);
+        return generalService.prepareResponse(ResponseCodeAndMessage.SUCCESSFUL_0, data);
+    }
+
+    @GetMapping("/riders/did-not-finish/{raceId}")
     public Response getRidersWhoDidNotFinish(@PathVariable Long raceId) {
 
         List<Rider> data = raceResultService.getRidersWhoDidNotFinish(raceId);
         return generalService.prepareResponse(ResponseCodeAndMessage.SUCCESSFUL_0, data);
     }
 
-    @GetMapping("/not-participated/{raceId}")
+    @GetMapping("/riders/not-participated/{raceId}")
     public Response getRidersWhoDidNotParticipate(@PathVariable Long raceId) {
 
         List<Rider> data = raceResultService.getRidersWhoDidNotParticipate(raceId);

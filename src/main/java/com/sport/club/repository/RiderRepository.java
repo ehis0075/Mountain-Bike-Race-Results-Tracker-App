@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface RiderRepository extends JpaRepository<Rider, Long> {
 
+    Rider findByName(String name);
+
 }

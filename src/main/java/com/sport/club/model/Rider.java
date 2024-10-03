@@ -1,11 +1,7 @@
 package com.sport.club.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,12 +14,8 @@ public class Rider {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String name;
-
-    public Rider(Long id, String name) {
-        this.id=id;
-        this.name=name;
-    }
 
     public Rider() {
 

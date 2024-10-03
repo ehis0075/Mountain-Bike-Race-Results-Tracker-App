@@ -1,4 +1,4 @@
-package com.sport.club.pojo;
+package com.sport.club.pojo.response;
 
 import lombok.Getter;
 
