@@ -1,7 +1,7 @@
 # Mountain Bike Race Results Tracker Application
 This is a Spring Boot application designed to track and manage mountain bike race results. 
 It stores information on riders, races, and race results, and provides several reports such 
-as the top 3 fastest riders, riders who did not finish, and weather conditions during the race 
+as the top 3 fastest riders, top 3 race results, riders who did not finish, and weather conditions during the race 
 using a public API.
 
 ## Requirements
@@ -66,7 +66,7 @@ docker run -p 8085:8085 race-result-service-docker:latest
 ### Method: GET
 ### This API requires raceId as a path variable.
 
-### 2. Top 3 Race Result Per Race : This api displays the top 3 race result based on their race times for a given race.
+### 2. Top 3 Race Result: This api displays the top 3 race result for a given race.
 ### Endpoint: /api/v1/race-results/top3/{raceId}
 ### Method: GET
 ### This API requires raceId as a path variable.
