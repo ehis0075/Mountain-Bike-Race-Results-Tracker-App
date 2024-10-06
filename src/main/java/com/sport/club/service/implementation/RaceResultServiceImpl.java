@@ -95,6 +95,8 @@ public class RaceResultServiceImpl implements RaceResultService {
 
     @Override
     public WeatherResponse getWeather(String location) {
+        log.info("Request to get the weather for {}", location);
+
         String fullUrl = BASE_URL + location + "&appid=" + API_KEY;
 
         String requestBody;
